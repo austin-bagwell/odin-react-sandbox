@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import MyComponent from "./components/MyComponent";
+import CounterWidget from "./components/CounterWidget";
+import Header from "./components/Header";
+import Clock from "./components/Clock";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+
+  onClickBtn() {
+    console.log("Button has been clicked!");
+  }
+
+  render() {
+    return (
+      <div>
+        <Header name="Austin" />
+        <MyComponent title="React" onButtonClick={this.onClickBtn} />
+        <CounterWidget />
+        <Clock />
+      </div>
+    );
+  }
 }
 
 export default App;
